@@ -1,0 +1,76 @@
+import remiseras.*
+import clientes.*
+import oficinaCooperativa.*
+
+test "Cambio de estado economico en Ana Maria" {
+	
+	assert.that(anaMaria.estaEconomicamenteEstable())
+	assert.that(anaMaria.valorKmPactado() == 30)
+	anaMaria.cambiarEstadoDeEconomia()
+	assert.that(!anaMaria.estaEconomicamenteEstable())
+	assert.that(anaMaria.valorKmPactado() == 25)
+	
+}
+
+test "Viajes de Roxana (10km)" {
+	
+	assert.equals(180, roxana.precioViaje(ludmila, 10))
+	assert.equals(300, roxana.precioViaje(anaMaria, 10))
+	assert.equals(220, roxana.precioViaje(teresa, 10))
+
+}
+
+test "Viajes de Gabriela (10km)" {
+	
+	assert.equals(216, gabriela.precioViaje(ludmila, 10))
+	assert.equals(360, gabriela.precioViaje(anaMaria, 10))
+	assert.equals(264, gabriela.precioViaje(teresa, 10))
+
+}
+
+test "Viajes de Mariela (10km)" {
+	
+	assert.equals(180, mariela.precioViaje(ludmila, 10))
+	assert.equals(300, mariela.precioViaje(anaMaria, 10))
+	assert.equals(220, mariela.precioViaje(teresa, 10))
+
+}
+
+test "Viajes de Juana (10km)" {
+	
+	assert.equals(200, juana.precioViaje(ludmila, 10))
+	assert.equals(200, juana.precioViaje(anaMaria, 10))
+	assert.equals(200, juana.precioViaje(teresa, 10))
+
+}
+
+test "Lucia reemplazando a Mariela y Melina a Ludmila (viajes de 10km y 1km)" {
+	
+	lucia.reemplazoDe(mariela)
+	melina.trabajandoPara(ludmila)
+	assert.equals(150, lucia.precioViaje(melina, 10))
+	assert.equals(50, lucia.precioViaje(melina, 1))
+
+}
+
+test "Lucia reemplazando a Gabriela y Melina a Ludmila (viajes de 10km y 1km)" {
+	
+	lucia.reemplazoDe(gabriela)
+	melina.trabajandoPara(ludmila)
+	assert.equals(180, lucia.precioViaje(melina, 10))
+	assert.equals(18, lucia.precioViaje(melina, 1))
+
+}
+
+test "oficina" {
+	
+	oficina.asignarRemiseras(roxana, juana)
+	assert.equals(juana, oficina.remiseraElegidaParaViaje(anaMaria, 10))
+	assert.equals(roxana, oficina.remiseraElegidaParaViaje(teresa, 10))
+	assert.equals(roxana, oficina.remiseraElegidaParaViaje(teresa, 4))
+	
+}
+
+
+
+
