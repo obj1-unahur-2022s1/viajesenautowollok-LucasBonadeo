@@ -1,6 +1,4 @@
 import remiseras.*
-import clientes.*
-
 
 object oficina {
 	var primeraRemisera = null
@@ -24,15 +22,20 @@ object oficina {
 	}
 	
 	method intercambiarRemiseras() {
-		primeraRemisera = segundaRemisera
-		segundaRemisera = primeraRemisera
+		var remisera1 = primeraRemisera
+		var remisera2 = segundaRemisera
+		
+		self.cambiarPrimerRemiseraPor(remisera2)
+		self.cambiarSegundoRemiseraPor(remisera1)
 	}
+	
+	// Si el costo del viaje con la segunda remisera es al menos $30 más barato, retorna la segunda remisera.
 	
 	method remiseraElegidaParaViaje(cliente, kms) {
 		var remiseraElegida = primeraRemisera
 		var costoPrimerRemisera = primeraRemisera.precioViaje(cliente, kms)
 		var costoSegundaRemisera = segundaRemisera.precioViaje(cliente, kms)
-		// Si el costo del viaje con la segunda remisera es al menos $30 más barato, retorna la segunda remisera.
+	
 		if (( costoPrimerRemisera - costoSegundaRemisera ) > 30 ) {
 			remiseraElegida = segundaRemisera
 		}

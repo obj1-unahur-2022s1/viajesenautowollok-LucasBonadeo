@@ -1,4 +1,3 @@
-// Clientas de la remiseria 
 
 object ludmila {
 	method valorKmPactado() = 18
