@@ -21,7 +21,7 @@ object gabriela {
 // Mariela no le agrega valor al precio pactado por km pero tiene un minimo de $50
 
 object mariela {
-	
+	/*Perfecto usando el max */
 	method precioViaje(pasajero, km) {
 		return 50.max(km * pasajero.valorKmPactado())
 	}
@@ -30,7 +30,7 @@ object mariela {
 // Juana le cobra a todos lo mismo, si es menos de 8 km $100. Sino $200.
 
 object juana {
-	
+	/* Fijate de usar la forma corta */
 	method precioViaje(pasajero, km) {
 		var precioViaje = 100
 		if (km > 8) {
