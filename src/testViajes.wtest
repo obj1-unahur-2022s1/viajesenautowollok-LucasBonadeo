@@ -1,7 +1,7 @@
 import remiseras.*
 import clientes.*
 import oficinaCooperativa.*
-
+/*Todos los TEST OK */
 test "Cambio de estado economico en Ana Maria" {
 	
 	assert.that(anaMaria.estaEconomicamenteEstable())

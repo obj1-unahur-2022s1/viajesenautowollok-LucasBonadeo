@@ -1,4 +1,6 @@
-
+/*
+ * Clientes: OK
+ */
 object ludmila {
 	method valorKmPactado() = 18
 }
@@ -6,14 +8,9 @@ object ludmila {
 object anaMaria {
 	var estaEconomicamenteEstable = true 
 	
-	method valorKmPactado() {
-		var valorKm = 30
-		if (not estaEconomicamenteEstable) {
-			valorKm = 25
-		}
-		return valorKm
-	}
-	
+	/*Otra forma mas corta de escribir lo mismo */
+	method valorKmPactado() = if(estaEconomicamenteEstable){30}else{25}
+
 	method estaEconomicamenteEstable() {
 		return estaEconomicamenteEstable
 	}

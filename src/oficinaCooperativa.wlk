@@ -22,11 +22,16 @@ object oficina {
 	}
 	
 	method intercambiarRemiseras() {
+		
+		/* TE COMPLICASETE podias usar asignarRemiseras 
 		var remisera1 = primeraRemisera
 		var remisera2 = segundaRemisera
 		
 		self.cambiarPrimerRemiseraPor(remisera2)
 		self.cambiarSegundoRemiseraPor(remisera1)
+		*  
+		*/
+		self.asignarRemiseras(segundaRemisera, primeraRemisera)
 	}
 	
 	// Si el costo del viaje con la segunda remisera es al menos $30 más barato, retorna la segunda remisera.
